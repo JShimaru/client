@@ -7,7 +7,7 @@ function Items(){
 
     const list = async () =>{
         try{
-            const res = await axios('http://localhost:3000/api/items')
+            const res = await axios(`${apiUrl}/items`)
             console.log(res)
             setItems(res.data.items)
         }catch(err){

@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import axios from 'axios'
 import Layout from "../shared/Layout";
 import ItemForm from "../shared/ItemForm";
+import apiUrl from "../../config/config";
 
 function ItemEdit(){
     const navigate = useNavigate()
@@ -15,7 +16,7 @@ function ItemEdit(){
     useEffect(() => {
         const fetchData = async () => {
        try {
-           const response = await axios(`http://localhost:3000/api/items/${id}`)
+           const response = await axios(`${apiUrl}/items/${id}`)
            console.log(response)
            setItem(response.data)
        } catch (error) {

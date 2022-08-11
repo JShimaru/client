@@ -2,6 +2,7 @@ import {useState, useEffect} from 'react';
 import {NavLink, useNavigate, useParams} from 'react-router-dom';
 import axios from 'axios';
 import Layout from '../shared/Layout';
+import apiUrl from '../../config/config';
 
 const Item = () =>{
     const [item,setItem] = useState([])
@@ -13,7 +14,7 @@ const Item = () =>{
     useEffect(()=>{
         async function getItem(){
             try{
-                const response = await axios(`http://localhost:3000/api/items/${id}`)
+                const response = await axios(`${apiUrl}/items/${id}`)
                 console.log(response)
                 const results = response.data.item
                 setItem(results)
@@ -27,7 +28,7 @@ const Item = () =>{
 
     const destroy = ()=>{
         axios({
-            url:`http://localhost:3000/api/items/${id}`,
+            url:`${apiUrl}/items/${id}`,
             method: 'DELETE'
         }).then(()=>setDeleted(true)).catch(console.error)
     }

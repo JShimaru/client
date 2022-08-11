@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Layout from '../shared/Layout';
 import ItemForm from '../shared/ItemForm';
+import apiUrl from '../../config/config';
 
 function ItemCreate() {
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ function ItemCreate() {
     //if the entry is created in the database, save the response data
     // in the state
     axios({
-      url: `http://localhost:3000/api/items`,
+      url: `${apiUrl}/items`,
       method: 'POST',
       data: item
     }).then(res => setCreatedItem(res.data.item)).catch(console.error)
