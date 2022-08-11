@@ -1,6 +1,7 @@
 import {useState, useEffect } from 'react';
 import {NavLink} from 'react-router-dom';
 import axios from 'axios';
+import apiUrl from '../../config/config';
 
 function Items(){
     const [items, setItems] = useState([])
